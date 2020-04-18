@@ -32,7 +32,7 @@ def task3():
         string2 = str(request.form['string2'])
         if string1 is not None and string2 is not None:
             result = run_task3(string1, string2)
-            html_item = json.dumps(result, indent=4, seperators(', ', ': '))
+            html_item = json.dumps(result, indent=4, separators=(', ', ': '))
             return render_template("task3_out.html", result=result)
     return render_template("task3_in.html")
 
