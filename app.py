@@ -25,7 +25,16 @@ def task2():
 @app.route('/task3', methods=["GET", "POST"])
 def task3():
     result = ""
-    
+    if request.method == "POST":
+        string1 = None
+        string2 = None
+        string1 = str(request.form['string1'])
+        string2 = str(request.form['string2'])
+        if string1 is not None and string2 is not None:
+            result = run_task3(string1, string2)
+            html_item = json.dumps(result, indent=4, seperators(', ', ': '))
+            return render_template("task3_out.html", result=result)
+    return render_template("task3_in.html")      
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
