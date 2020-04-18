@@ -49,6 +49,7 @@ def geo_split(file_geo1):
         geosplit = json.load(f)
     return geosplit
 
+
 # Get Euclidean distance
 def latlon_dist(input_lat, input_lon):
     """
@@ -74,6 +75,7 @@ def latlon_dist(input_lat, input_lon):
         })
     return eudist_un
 
+
 # Parse json files
 def data_json(file_data):
     """
@@ -83,6 +85,7 @@ def data_json(file_data):
     with open(file_data, 'r') as f:
         datastore = json.load(f)
     return datastore
+
 
 def merge_geos(data1, data2): # (geodist, datastore)
     """
@@ -101,3 +104,23 @@ def merge_geos(data1, data2): # (geodist, datastore)
                            reverse=False
                            )
     return merged_sorted
+
+
+def sort_final(y):
+    with open(selected_pb, 'w') as outpb:
+        pb = []
+        for pr in y:
+            pb.append({
+                "active": pr["active"],
+                "asn": pr["asn"],
+                "countrycode": pr["countrycode"],
+                "id": pr["id"],
+                "statecode": pr["statecode"],
+                "meta": pr["meta"],
+                "dist": pr["dist"]
+            })
+        datap = json.dumps(pb)
+        outpb.write(datap)
+    with open(selected_pb, 'r') as f:
+        selected_dist = json.load(f)
+    return selected_dist
