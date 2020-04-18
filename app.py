@@ -45,7 +45,7 @@ def task4():
         string1 = str(request.form['string1'])
         string2 = str(request.form['string2'])
         if string1 is not None and string2 is not None:
-            result = run_task3(string1, string2)
+            result = run_task4(string1, string2)
             return render_template("task4_out.html", result=result)
     return render_template("task4_in.html")
 
