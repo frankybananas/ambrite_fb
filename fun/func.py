@@ -48,3 +48,28 @@ def geo_split(file_geo1):
     with open(new_geo_out, 'r') as f:
         geosplit = json.load(f)
     return geosplit
+
+# Get Euclidean distance
+def latlon_dist(input_lat, input_lon):
+    """
+    Load the two JSON files and take the custom starting LAT and LON
+    inputs and calculate the Euclidean distance from starting point
+    to all other points in the GEO file with coordinates.
+
+    """
+    eudist = []
+    for dis in newgeo:
+        slat = radians(float(input_lat)) # Input static Latitudefrom user
+        slon = radians(float(input_lon)) # Input static Lontitude from user
+        elat = radians(float(dis['lat']))
+        elon = radians(float(dis['lon']))
+        dist = round(6371.01 * acos(sin(slat)*sin(elat) +
+                                    cos(slat)*cos(elat) *
+                                    cos(slon - elon)), 2)
+        eudist_un.append({
+            "ipv4": dis["ipv4"],
+            "lat": dis["lat"],
+            "lon": dis["lon"],
+            "dist": dist
+        })
+    return eudist_un
