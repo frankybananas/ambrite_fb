@@ -73,3 +73,13 @@ def latlon_dist(input_lat, input_lon):
             "dist": dist
         })
     return eudist_un
+
+# Parse json files
+def data_json(file_data):
+    """
+    Parse the Data json file
+
+    """
+    with open(file_data, 'r') as f:
+        datastore = json.load(f)
+    return datastore
