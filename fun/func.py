@@ -20,9 +20,9 @@ def is_json(filename):
     try:
         with open(filename, 'r') as f:
             dstore = json.load(f)
-        except JSONDecodeError:
-            return False # In case the file is invalid json file
-        return True # In case the file is a valid json file
+    except JSONDecodeError:
+        return False # In case the file is invalid json file
+    return True # In case the file is a valid json file
 
 
 # Start Task 3 & Task 4 Functions
