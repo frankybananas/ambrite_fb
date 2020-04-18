@@ -58,7 +58,7 @@ def latlon_dist(input_lat, input_lon):
     to all other points in the GEO file with coordinates.
 
     """
-    eudist = []
+    eudist_un = []
     for dis in newgeo:
         slat = radians(float(input_lat)) # Input static Latitudefrom user
         slon = radians(float(input_lon)) # Input static Lontitude from user
