@@ -89,7 +89,7 @@ def data_json(file_data):
 
 def merge_geos(data1, data2): # (geodist, datastore)
     """
-    Merge the two Geo json's
+    Merge the two Geo json's.
 
     """
     data_merged = [
@@ -132,6 +132,11 @@ def sort_final(y):
 
 
 def run_task3(lat, lon):
+    """
+    Run all the required functions to get the data
+    from the two starting points that was input.
+
+    """
     global newgeo
     newgeo = geo_split(geo_file)
     geodist = latlon_dist(lat, lon)
@@ -139,3 +144,9 @@ def run_task3(lat, lon):
     mer_sorted = merge_geos(geodist, datastore)
     fin_select = sort_final(mer_sorted)
     return fin_select
+
+
+def run_task4(lat, lon):
+    res1 = run_task3(lat, lon)
+    res2 = res1[0]
+    return res2
