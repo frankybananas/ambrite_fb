@@ -107,6 +107,11 @@ def merge_geos(data1, data2): # (geodist, datastore)
 
 
 def sort_final(y):
+    """
+    Take the merged data and create a new list with
+    only the required information sorted by distance.
+
+    """
     with open(selected_pb, 'w') as outpb:
         pb = []
         for pr in y:
@@ -124,3 +129,13 @@ def sort_final(y):
     with open(selected_pb, 'r') as f:
         selected_dist = json.load(f)
     return selected_dist
+
+
+def run_task3(lat, lon):
+    global newgeo
+    newgeo = geo_split(geo_file)
+    geodist = latlon_dist(lat, lon)
+    datastore = data_json(data_file)
+    mer_sorted = merge_geos(geodist, datastore)
+    fin_select = sort_final(mer_sorted)
+    return fin_select
