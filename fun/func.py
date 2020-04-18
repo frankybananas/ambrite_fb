@@ -83,3 +83,21 @@ def data_json(file_data):
     with open(file_data, 'r') as f:
         datastore = json.load(f)
     return datastore
+
+def merge_geos(data1, data2): # (geodist, datastore)
+    """
+    Merge the two Geo json's
+
+    """
+    data_merged = [
+                    dict(**el1, **el2)
+                    for el1 in data1
+                    for el2 in data2
+                    if el1['ipv4'] in el2['meta']
+                    ]
+    merged_sorted = sorted(
+                           data_merged,
+                           key=lambda k: k['dist'],
+                           reverse=False
+                           )
+    return merged_sorted
