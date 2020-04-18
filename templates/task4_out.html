@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <p><a href="{{ url_for('index') }}">Index</a>
+        <br>
+        <br>
+        <p>Shortest euclid distance to nearest data point</p>
+        <br>
+        <p><a href="/task4">Click here to check another</a>
+        <br>
+        <pre>{{ result|tojson(indent=2, separators=(', ', ': '))|safe }}</pre>
+        <br>
+        <br>
+    </body>
+</html>
