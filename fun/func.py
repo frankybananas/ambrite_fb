@@ -11,6 +11,7 @@ merge_out = 'data/merged.json'
 selected_pb = 'data/selected.json' # Output file for last selected items
 
 
+# Task 2 
 def is_json(filename):
     """
     Check if the specified file is a valid JSON file
