@@ -7,4 +7,4 @@ Coding Challenge
 
 3. in the cli run "python app.py"
 
-4. Selected the Tasks from the main screen and follow instructions.
+4. Select the Tasks from the main screen and follow instructions.
